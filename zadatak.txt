@@ -1,0 +1,45 @@
+Proširiti rješenje sedmog zadatka s tri klase:
+
+1. AuthControllerTest koja mora sadržavati sljedeće metode:
+
+testAuthenticateAndGetToken_Success – jUnit test koji poziva metodu „authenticateAndGetToken” te provjerava jesu li u odgovoru uspješno postavljeni „access” i „refreshToken” te jesu li odgovarajuće metode u servisima pozvane jedanput
+
+testAuthenticateAndGetToken – jUnit test koji poziva metodu „authenticateAndGetToken” s neispravnim korisničkim imenom i lozinkom te provjerava je li bačena odgovarajuća iznimka te jesu li metode u servisima pozvane točno jedanput
+
+testRefreshToken_Success – jUnit test koji provjerava je li na ispravan način generiran novi „access” token na temelju „refreshTokena” te jesu li servisne metode pozvane točno jedanput
+
+testRefreshToken_Failure – jUnit test koji provjerava je li bačena ispravna iznimka u slučaju kad se pošalje neispravan „refresh” token i jesu li servisne metode pozvane točno jedanput
+
+
+2. HardwareControlerTest koja mora sadržavati sljedeće metode:
+
+testGetAll – jUnit test koji poziva metodu za dohvaćanje svih zapisa o hardveru te provjerava je li broj objekata ispravan te je li jedanput pozvana servisna metoda
+
+testGetByCode_Found – jUnit test koji poziva metodu za dohvaćanje zadanog hardvera po ispravnom kodu te je li jedanput pozvana servisna metoda
+
+testGetByCode_NotFound – jUnit test koji poziva metodu za dohvaćanje zadanog hardvera po neispravnom kodu, je li bačena odgovarajuća iznimka te je li jedanput pozvana servisna metoda
+
+testSave_Success – jUnit test koji poziva metodu za spremanje podataka te provjerava je li uspješno izvršena te je li jedan pozvana servisna metoda
+
+testSave_Conflict – jUnit test koji poziva metodu za spremanje podataka te provjerava je li uspješno bačena iznimka i status „HttpStatus.CONFLICT” ako se želi spremiti hardver koji već postoji te je li jedan pozvana servisna metoda
+
+
+testUpdate_Success – jUnit test koji poziva metodu za ažuriranje podataka te provjerava je li uspješno izvršena te je li jedan pozvana servisna metoda
+
+testUpdate_NotFound – jUnit test koji poziva metodu za ažuriranje zadanog hardvera po neispravnom kodu, je li bačena odgovarajuća iznimka ako se pokušava ažurirati hardver koji ne postoji te je li jedanput pozvana servisna metoda
+
+testDelete– jUnit test koji poziva metodu za brisanje zadanog hardvera te je li jedanput pozvana servisna metoda
+
+
+
+3. HardwareControlerIntegrationTest koja mora sadržavati sljedeće metode:
+
+testGetAll – integration test koji koristi JWT token i poziva metodu za dohvaćanje svih zapisa o hardveru te provjerava je li vraćen JSON objekt zadani broj hardver zapisa te je li na prvom zapisu odgovarajući kod hardvera
+
+testGetByCode – integration test koji koristi JWT token i poziva metodu za dohvaćanje zadanog hardvera po ispravnom kodu te provjerava je li dohvaćen ispravan hardver
+
+testSaveHardware – integration test koji koristi JWT token i poziva metodu za spremanje podataka te provjerava je li uspješno izvršena te vraćen ispravan odgovor te vrijednosti spremljenog hardvera u JSON obliku
+
+testUpdateHardware – integration test koji koristi JWT token i poziva metodu za ažuriranje podataka te provjerava je li uspješno ažuriran podatak o hardveru
+
+testDeleteHardware – integration test koji koristi JWT token i poziva metodu za brisanje podataka o zadanom hardveru te provjerava je li brisanje prošlo uspješno
